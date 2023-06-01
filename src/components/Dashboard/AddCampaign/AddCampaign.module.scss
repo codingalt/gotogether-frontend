@@ -12,6 +12,10 @@
   box-shadow: none;
   border: none;
   padding-bottom: 1rem;
+
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    height: 1.4rem !important;
+}
 }
 
 .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
@@ -325,6 +329,10 @@
             
             transition: border .1s;
             color: $text-primary;
+            // background-color: #F6F6F6;
+            height: 3.5rem;
+            border-radius: 11px;
+            box-shadow: none !important;
 
             &:focus{
                 border: 1px solid $primary;
@@ -370,6 +378,14 @@
         @include flexCenter;
         margin: 1rem auto;
         gap: 1.5rem;
+
+        .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+            height: 1.4rem !important;
+        }
+
+        input{
+            height: 1.4rem !important;
+        }
 
         .sheduleProps{
             width: 100%;

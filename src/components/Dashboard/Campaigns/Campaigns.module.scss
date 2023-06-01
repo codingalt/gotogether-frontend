@@ -1,0 +1,354 @@
+@import '../../../styles/constants.scss';
+
+.wrapper{
+    width: 100vw;
+    min-height: 100vh;
+    padding-top: 3rem;
+
+    .header{
+        max-width: 700px;
+        @include flexCenter;
+        justify-content: space-between;
+        margin: auto;
+        align-items: flex-start;
+
+        .left{
+            display: flex;
+            flex-direction: column;
+            font-family: 'Nunito',sans-serif;
+
+            span{
+                font-size: 2.3rem;
+                line-height: 48px;
+                color: #212121;
+                font-style: normal;
+                font-weight: 800;
+                font-family: 'Nunito',sans-serif;
+            }
+        }
+
+        .right{
+            margin-top: 1rem;
+
+            svg{
+                font-size: 2rem;
+                color: #555;
+            }
+        }
+        @media (max-width:768px) {
+            &{
+                margin-left: 30px;
+                margin-right: 40px;
+
+                .left{
+                    span{
+                        font-size: 2.18rem;
+                    }
+                }
+                .right{
+                    svg{
+                        color: gray;
+                    }
+                }
+            }
+        }
+    }
+
+    .searchBox{
+        max-width: 705px;
+        margin: 15px auto;
+        position: relative;
+
+        input{
+            height: 63px;
+            background: #F2F5F5;
+            border-radius: 18px;
+            border: none;
+            outline: none;
+            width: 100%;
+            padding-left: 2.6rem;
+            color: #212121;
+            font-weight: 700;
+            transition: all .2s;
+
+            &::placeholder{
+                font-family: 'Nunito';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 1.05rem !important;
+                line-height: 22px;
+                letter-spacing: 0.06em;
+                color: #555555;
+            }
+            &:focus{
+                border: 1.5px solid $primary2;
+                transition: all .2s;
+            }
+        }
+
+        svg{
+            font-size: 1.2rem;
+            position: absolute;
+            left: 14px;
+            top: 37%;
+            color: #555555;
+        }
+        @media (max-width:768px) {
+            &{
+                margin-left: 21px;
+                margin-right: 21px;
+
+                input{
+                    border-radius: 18px;
+                }
+            }
+        }
+    }
+
+    .banner{
+        max-width: 700px;
+        margin: 23px auto;
+        height: 113px;
+        border-radius: 7px;
+        background-image: url('../../../images/banner.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: relative;
+
+        .overlay{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.65);
+            border-radius: 7px;
+
+            .text{
+                margin: 20px 26px;
+                display: flex;
+                flex-direction: column;
+
+                span{
+                    color: #ffff;
+                    font-family: 'Nunito';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 1.2rem;
+                    line-height: 23px;
+                    letter-spacing: 0.03em;
+                }
+            }
+        }
+        @media (max-width:768px) {
+            &{
+                margin-left: 21px;
+                margin-right: 21px;
+            }
+        }
+    }
+
+    .campaigns{
+        @include flexCenter;
+        gap: 1rem;
+        max-width: 700px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        margin: 1.8rem auto;
+
+        .card{
+            // flex: 1;
+            background: #FFFFFF;
+            border: 1px solid #EEEEEE;
+            box-shadow: 3px 4px 4px 4px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            padding: 14px 10px;
+            min-height: 308px;
+            width: 338px;
+
+            .top{
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 9px;
+                margin-bottom: 17px;
+
+                .left{
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    object-fit: cover;
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 50%;
+                    }
+                }
+
+                .right{
+                    display: flex;
+                    flex-direction: column;
+
+                    span{
+                        font-family: 'Nunito';
+                        font-style: normal;
+                        font-weight: 700;
+                        font-size: 1rem;
+                        line-height: 20px;
+                        margin-top: 1px;
+                        letter-spacing: 0.06em;
+                        color: #000000;
+                    }
+
+                    .rating{
+                        margin-top: -2px;
+                        span{
+                            font-family: 'Nunito';
+                            font-style: normal;
+                            font-weight: 600;
+                            font-size: 12px;
+                            line-height: 0px;
+                            letter-spacing: 0.06em;
+                            color: #808080;
+                        }
+                        svg{
+                            color: $star;
+                            font-size: .95rem;
+                            margin-right: 1px;
+                        }
+                    }
+                    
+                }
+            }
+
+            .group{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                margin-top: .9rem;
+                margin-left: 4px;
+        
+                span:nth-child(1){
+                    color: #555555;
+                    font-family: 'Nunito';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 13px;
+                    line-height: 16px;
+                    letter-spacing: 0.06em;
+                }
+        
+                span:nth-child(2){
+                    font-family: 'Nunito';
+                    font-style: normal;
+                    font-weight: 800;
+                    font-size: 14px;
+                    line-height: 19px;
+                    letter-spacing: 0.06em;
+                    color: #212121;
+                    margin-right: 8px;
+                    margin-top: 2px;
+                }
+            }
+
+            .rideDetails{
+                width: 100%;
+                @include flexCenter;
+                justify-content: flex-end;
+                margin-top: 18px;
+                margin-left: auto;
+                margin-right: auto;
+
+                .item{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                    justify-content: center;
+
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    span{
+                        color: #555;
+                        font-family: 'Nunito';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 13px;
+                        line-height: 16px;
+                        letter-spacing: 0.06em;
+                    }
+                }
+            }
+
+            .buttons{
+                width: 100%;
+                @include flexCenter;
+                gap: 13px;
+                justify-content: flex-end;
+                margin-top: 22px;
+                margin-bottom: 5px;
+
+                .msg{
+                    @include button($width: 8rem,$height: 2.55rem);
+                    border-radius: 5px;
+                    font-family: 'Nunito';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 16px;
+                    line-height: 23px;
+                    letter-spacing: 0.03em;
+                    background: transparent;
+                    border: 1px solid $primary;
+                    color: $primary;
+                    box-shadow: none !important;
+                }
+                .book{
+                    @include button($width: 8.2rem,$height: 2.65rem);
+                    border-radius: 5px;
+                    font-family: 'Nunito';
+                    font-style: normal;
+                    font-weight: 700;
+                    font-size: 17px;
+                    line-height: 23px;
+                    letter-spacing: 0.03em;
+                    box-shadow: none !important;
+                }
+            }
+
+        }
+        @media (max-width:768px) {
+            &{
+                justify-content: center;
+
+                .card{
+                    width: 89.5%;
+                    margin-bottom: 9px;
+                }
+            }
+        }
+    }
+
+   
+
+    .divider{
+        height: 1px;
+        background-color: #D3D3D3;
+        width: 95%;
+        margin: 10px;
+        margin-bottom: 8px;
+        margin-left: 0;
+        transform: rotate(0.2deg);
+    }
+
+    @media (max-width:768px) {
+        padding-top: 2.2rem;
+        padding-bottom: 2rem;
+    }
+
+}

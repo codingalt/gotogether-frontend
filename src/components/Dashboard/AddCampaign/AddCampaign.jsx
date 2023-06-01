@@ -171,9 +171,9 @@ const AddCampaign = () => {
         rideRules: formik.values.rideRules,
         seatCostPerKm: formik.values.seatCostPerKm,
         availableSeats: formik.values.availableSeats,
-        vehicleType: 'Car',
         comment: 'Comfort ride with AC and music',
-        rideType: 'In City'
+        expectedRideDistance: distance,
+        expectedRideTime: duration
       });
 
       formik.resetForm();
@@ -186,6 +186,10 @@ const AddCampaign = () => {
   useMemo(()=>{
     if (isSuccess) {
       toastSuccess("Your Campaign posted successfully");
+      setTimeout(() => {
+        setCampaign(false)
+        navigate('/waiting')
+      }, 3000);
     }
   },[isSuccess]);
 
@@ -204,6 +208,7 @@ const AddCampaign = () => {
       toastError(result?.error?.data?.message);
     }
   }, [isError]);
+
 
   return isLoaded ? (
     <div className={campaign ? css.active : css.wrapper}>
@@ -600,7 +605,7 @@ const AddCampaign = () => {
 
           <div className={css.submitBtn}>
             <button disabled={isLoading} type="submit">
-              {isLoading ? <Loader width={25} /> : "Post Campaign"}
+              {isLoading ? <Loader width={25} color='#fff' /> : "Post Campaign"}
             </button>
           </div>
         </form>

@@ -44,12 +44,14 @@ const Main = () => {
   const [map, setMap] = useState(/** @type google.maps.Map */ (null));
   const [mapref, setMapRef] = useState(null);
   const [infoWindow, setInfoWindow] = useState(null);
+  const [currentLocation,setCurrentLocation] = useState();
 
   useEffect(()=>navigator.geolocation.getCurrentPosition(position => 
     {
-       setMapCenter({lat:position.coords.latitude, lng:position.coords.longitude})      
+      // setMapCenter({lat:position.coords.latitude, lng:position.coords.longitude})      
+      setCurrentLocation({lat:position.coords.latitude, lng:position.coords.longitude})      
     }
-    ),[]);
+  ),[]);
 
     const handleCenterChanged = () => {
       setInfoWindow(null)
@@ -80,8 +82,8 @@ const Main = () => {
       <div className={css.container}>    
         <GoogleMap
       mapContainerStyle={containerStyle}
-      center={center}
-      zoom={confirmLocation ? 16 : 10}
+      center={currentLocation}
+      zoom={confirmLocation ? 16 : 12}
       options={{
         streetViewControl: false,
         mapTypeControl: false,

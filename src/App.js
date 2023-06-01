@@ -9,14 +9,24 @@ import UserInfo from "./components/UserInfo/UserInfo";
 import RegisterDriver from "./components/RegisterDriver/RegisterDriver";
 import Main from "./components/Dashboard/Main/Main";
 import AddCampaign from "./components/Dashboard/AddCampaign/AddCampaign";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useJsApiLoader } from "@react-google-maps/api";
 import MainContext from "./components/Context/MainContext";
 import Protected from "./components/Protected/Protected";
 import Sidebar from "./components/Dashboard/Sidebar/Sidebar";
 import Sidebar2 from "./components/Dashboard/Sidebar/Sidebar2";
+import Profile from "./components/Dashboard/Profile/Profile";
+import 'boxicons';
+import Campaigns from "./components/Dashboard/Campaigns/Campaigns";
+import { useDispatch } from "react-redux";
+import { setProfileData } from "./services/redux/userSlice";
+import { useGetDriverQuery, useGetUserQuery } from "./services/api/userApi";
+import WaitingTimer from "./components/Dashboard/WaitingTimer/WaitingTimer";
 
 function App() {
+  const dispatch = useDispatch();
+  const userId = localStorage.getItem("userId");
+  const {data,isLoading,isSuccess} = useGetUserQuery(userId);
   const [campaign, setCampaign] = useState(false);
   const [renderDirection, setRenderDirection] = useState(null);
   const libraries = useMemo(() => ["places"], []);
@@ -31,6 +41,11 @@ function App() {
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
     libraries,
   });
+
+  if(isSuccess){
+    dispatch(setProfileData({isDriver: data?.data[0]?.isDriver,profileImg: data?.data[0]?.profileImg,phone: data?.data[0]?.phone, totalRating: data?.data[0]?.totalRating, totalReviewsGiven: data?.data[0]?.totalReviewsGiven}))
+  }
+
   return (
     <div className="App">
       <MainContext.Provider
@@ -73,6 +88,9 @@ function App() {
             element={<Protected Component={RegisterDriver} />}
           />
           <Route exact path="/home" element={<Protected Component={Main} />} />
+          <Route exact path="/profile" element={<Protected Component={Profile} />} />
+          <Route exact path="/campaigns" element={<Protected Component={Campaigns} />} />
+          <Route exact path="/waiting" element={<Protected Component={WaitingTimer} />} />
         </Routes>
       </MainContext.Provider>
     </div>

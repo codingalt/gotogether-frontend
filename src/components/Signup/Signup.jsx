@@ -60,7 +60,7 @@ const Signup = () => {
         </div>
       </header>
 
-      <button disabled={isLoading} onClick={handleSubmit}>{isLoading ? <Loader width={25} /> : 'SEND OTP'}</button>
+      <button disabled={isLoading} onClick={handleSubmit}>{isLoading ? <Loader width={25} color="#fff" /> : 'SEND OTP'}</button>
     </div>
   );
 };

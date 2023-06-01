@@ -8,7 +8,7 @@ const Protected = ({Component}) => {
     useEffect(()=>{
         const authToken = localStorage.getItem('jwtoken_auth');
         if(!authToken){
-            navigate('/signup');
+            navigate('/');
         }else{
             setShow(true)
         }

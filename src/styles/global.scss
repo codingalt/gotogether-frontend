@@ -1,6 +1,11 @@
 @import 'constants';
 @import "~bootstrap/scss/bootstrap";
 
+ol,ul{
+    padding: 0;
+    padding-left: 0;
+}
+
 .innerWidth {
     @media (min-width: $xxl) {
         max-width: 1280px;

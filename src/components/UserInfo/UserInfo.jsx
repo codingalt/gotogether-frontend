@@ -120,6 +120,7 @@ const UserInfo = () => {
             type="text"
             className={formik.touched.email && formik.errors.email}
             placeholder="Enter your Name"
+            autoComplete="off"
           />
           {formik.touched.name && formik.errors.name ? (
             <div className={css.inputError}>{formik.errors.name}</div>
@@ -133,6 +134,7 @@ const UserInfo = () => {
             value={formik.values.email}
             type="email"
             placeholder="Enter Email address"
+            autoComplete="off"
           />
            {formik.touched.email && formik.errors.email ? (
             <div className={css.inputError}>{formik.errors.email}</div>
@@ -146,6 +148,7 @@ const UserInfo = () => {
             value={formik.values.city}
             type="text"
             placeholder="Enter your City"
+            autoComplete="off"
           />
            {formik.touched.city && formik.errors.city ? (
             <div className={css.inputError}>{formik.errors.city}</div>
@@ -220,7 +223,7 @@ const UserInfo = () => {
           </div>
         </div>
 
-        <button disabled={isLoading} type="submit" className={css.button}>{isLoading ? <Loader width={25} /> : 'Continue'}</button>
+        <button disabled={isLoading} type="submit" className={css.button}>{isLoading ? <Loader width={25} color="#fff" /> : 'Continue'}</button>
       </form>
     </div>
   );

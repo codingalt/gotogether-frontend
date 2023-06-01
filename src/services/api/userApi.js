@@ -50,7 +50,15 @@ export const userApi = createApi({
             invalidatesTags: ['Users'],
         }),
 
+        getUser: builder.query({
+            query: (userId) => `user/${userId}`,
+          }),
+
+          getDriver: builder.query({
+            query: (userId) => `driver/${userId}`,
+          }),
+
     }),
 });
 
-export const {useGetOtpMutation, useVerifyOtpMutation,useRegisterUserMutation, useRegisterDriverMutation} = userApi;
+export const {useGetOtpMutation, useVerifyOtpMutation,useRegisterUserMutation, useRegisterDriverMutation,useGetUserQuery,useGetDriverQuery} = userApi;

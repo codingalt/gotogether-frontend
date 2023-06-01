@@ -83,16 +83,16 @@ const VerifyOtp = () => {
         </p>
 
         <div className={css.mobileOtp}>
-         <input type="text" ref={pin1} onChange={(text) => {text && pin2.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
-         <input type="text" ref={pin2} onChange={(text) => {text ? pin3.current.focus() : pin1.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
-         <input type="text" ref={pin3} onChange={(text) => {text ? pin4.current.focus() : pin2.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
-         <input type="text" ref={pin4} onChange={(text) => {text ? pin4.current.focus() : pin2.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
+         <input type="text" autoComplete='off' ref={pin1} onChange={(text) => {text && pin2.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
+         <input type="text" autoComplete='off' ref={pin2} onChange={(text) => {text ? pin3.current.focus() : pin1.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
+         <input type="text" autoComplete='off' ref={pin3} onChange={(text) => {text ? pin4.current.focus() : pin2.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
+         <input type="text" autoComplete='off' ref={pin4} onChange={(text) => {text ? pin4.current.focus() : pin2.current.focus(); handleChange(text);}} min={0} max={9} maxLength={1} onInput={(e)=> {e.target.value = e.target.value.replace(/[^0-9]/g,'')}} />
         </div>
 
         <p className={css.resend}>Did'nt receive any code? <span onClick={()=> {resendCode();}}>Resend</span></p>
       </header>
 
-      <button onClick={handleSubmit}>{isLoading ? <Loader width={25} /> : 'Continue'}</button>
+      <button onClick={handleSubmit}>{isLoading ? <Loader width={25} color="#fff" /> : 'Continue'}</button>
     </div>
   )
 }
